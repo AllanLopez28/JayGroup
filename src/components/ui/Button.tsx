@@ -23,8 +23,8 @@ type ButtonAsButtonProps = BaseButtonProps &
 export type ButtonProps = ButtonAsLinkProps | ButtonAsButtonProps;
 
 const variantClasses: Record<ButtonVariant, string> = {
-  solid: "bg-brass text-night hover:opacity-90",
-  outline: "border border-current text-current hover:border-brass hover:text-brass",
+  solid: "btn-solid",
+  outline: "btn-outline",
 };
 
 export function Button(props: ButtonProps) {
@@ -35,13 +35,13 @@ export function Button(props: ButtonProps) {
     className = "",
   } = props;
 
-  const sharedClasses = `inline-flex items-center justify-center gap-3 px-6 py-3 font-mono text-xs uppercase tracking-[0.12em] transition-colors ${variantClasses[variant]} ${className}`.trim();
+  const sharedClasses = `btn ${variantClasses[variant]} ${className}`.trim();
 
   if (typeof props.href === "string") {
     return (
       <Link href={props.href} className={sharedClasses}>
         <span>{children}</span>
-        {withArrow && <ArrowIcon />}
+        {withArrow && <ArrowIcon className="btn-arrow" />}
       </Link>
     );
   }
@@ -61,7 +61,7 @@ export function Button(props: ButtonProps) {
   return (
     <button type="button" className={sharedClasses} {...buttonAttrs}>
       <span>{children}</span>
-      {withArrow && <ArrowIcon />}
+      {withArrow && <ArrowIcon className="btn-arrow" />}
     </button>
   );
 }

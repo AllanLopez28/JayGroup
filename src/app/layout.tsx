@@ -26,6 +26,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={fontVariables}>
       <body>
+        <a
+          href="#top"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-70 focus:rounded-full focus:bg-brass focus:px-5 focus:py-2.5 focus:font-mono focus:text-xs focus:uppercase focus:tracking-[0.1em] focus:text-night"
+        >
+          Skip to content
+        </a>
         <Header />
         <main id="top">{children}</main>
         <Footer />

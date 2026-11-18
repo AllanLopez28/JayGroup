@@ -5,6 +5,13 @@ export const siteConfig = {
   tagline: "Built for New York.",
   description:
     "New-construction rental and mixed-use buildings across Brooklyn and Manhattan, developed, leased and managed by one team.",
+  logo: {
+    src: "/brand/blanco-12.png",
+    width: 2396,
+    height: 1295,
+    alt: "The Jay Group",
+    ariaLabel: "The Jay Group, back to top",
+  },
   office: {
     street: "84 Kosciuszko St",
     cityStateZip: "Brooklyn, NY 11205",

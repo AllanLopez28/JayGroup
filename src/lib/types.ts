@@ -23,6 +23,13 @@ export interface Building {
   cutout?: string;
 }
 
+export interface HeroClip {
+  id: string;
+  src: string;
+  poster?: string;
+  buildingId: Building["id"];
+}
+
 export interface DirectoryEntry {
   name: string;
   hood: string;
