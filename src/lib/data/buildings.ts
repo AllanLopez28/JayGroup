@@ -1,4 +1,8 @@
-import type { Building } from "@/lib/types";
+import type {
+  Building,
+  NextProjectSkyline,
+  PortfolioStat,
+} from "@/lib/types";
 
 export const buildings: Building[] = [
   {
@@ -19,6 +23,9 @@ export const buildings: Building[] = [
       "Mixed-use, with ground-floor commercial space",
       "Near the DeKalb Av station (B, Q, R)",
     ],
+    image: "/images/buildings/99-fleet.webp",
+    cutout: "/images/buildings/99-fleet-cutout.webp",
+    cutoutAspectRatio: 0.474,
     url: "https://99fleetnyc.com",
   },
   {
@@ -40,9 +47,171 @@ export const buildings: Building[] = [
       "Pet spa, indoor climbing wall and pickleball courts",
       "108 studios · 97 one-bed · 262 two-bed · 28 three-bed",
     ],
+    image: "/images/buildings/the-fleet.webp",
+    cutout: "/images/buildings/the-fleet-cutout.webp",
+    cutoutAspectRatio: 0.463,
     url: "https://www.thefleetbk.com/",
   },
+  {
+    id: "inwood",
+    name: "Inwood Living",
+    hood: "Inwood",
+    boro: "Manhattan",
+    address: "3880 Ninth Avenue, New York, NY",
+    units: 270,
+    unitsLabel: "Units",
+    stories: 17,
+    status: "Completed",
+    investment: 92,
+    investmentText: "$92M",
+    investmentNote: "Construction financing · 2023",
+    tags: ["Professionals", "Couples", "Growing families"],
+    features: [
+      "Studio to two-bedroom layouts",
+      "25% of apartments designated affordable",
+      "Steps from the 1 train at 207 St",
+    ],
+    image: "/images/buildings/inwood.webp",
+    cutout: "/images/buildings/inwood-cutout.webp",
+    cutoutAspectRatio: 0.759,
+    url: "https://www.3880ninthave.com/",
+  },
+  {
+    id: "dome",
+    name: "The Dome Greenpoint",
+    hood: "Greenpoint",
+    boro: "Brooklyn",
+    address: "210 Greenpoint Avenue, Brooklyn, NY",
+    units: 70,
+    unitsLabel: "Units",
+    stories: 8,
+    status: "Completed",
+    investment: 57.8,
+    investmentText: "$57.8M",
+    investmentNote: "Financing secured · Affinius Capital · 2025",
+    tags: ["Urban professionals", "Couples"],
+    features: [
+      "Corner of Greenpoint Avenue and McGuinness Boulevard",
+      "Near the G train at Greenpoint Av",
+    ],
+    image: "/images/buildings/dome.webp",
+    cutout: "/images/buildings/dome-cutout.webp",
+    cutoutAspectRatio: 0.717,
+    url: "https://www.237mcguiness.com/",
+  },
+  {
+    id: "sunrose",
+    name: "Sunrose Tower",
+    hood: "Hamilton Heights",
+    boro: "Manhattan",
+    address: "620 West 153rd Street, New York, NY",
+    units: 238,
+    unitsLabel: "Units",
+    stories: 28,
+    status: "Completed",
+    investment: 117,
+    investmentText: "$117M",
+    tags: ["Rental", "Built 2023"],
+    features: [
+      "360° rooftop terrace on the 28th floor",
+      "Lounge, co-working space and fitness center",
+      "Dog park, playground and outdoor kitchens",
+      "Washer and dryer in every apartment",
+      "Near the 1 train at 157 St and the A/C at 155 St",
+    ],
+    image: "/images/buildings/sunrose.webp",
+    cutout: "/images/buildings/sunrose-cutout.webp",
+    cutoutAspectRatio: 0.72,
+    url: "https://sunrosetower.com/",
+  },
+  {
+    id: "1889-atlantic",
+    name: "1889 Atlantic Avenue",
+    hood: "Bedford-Stuyvesant",
+    boro: "Brooklyn",
+    address: "1889 Atlantic Avenue, Brooklyn, NY",
+    units: 80,
+    unitsLabel: "Units",
+    stories: 9,
+    status: "Completed",
+    investment: 36.2,
+    investmentText: "$36.2M",
+    tags: ["Rental", "Built 2024"],
+    features: [
+      "Studio to three-bedroom layouts",
+      "Gym, business center and package lockers",
+      "Rooftop terrace and outdoor terraces",
+      "Garage and bike storage",
+    ],
+    image: "/images/buildings/1889-atlantic.webp",
+    cutout: "/images/buildings/1889-atlantic-cutout.webp",
+    cutoutAspectRatio: 0.994,
+    url: "https://www.1889atlantic.com/",
+  },
 ];
+
+export const skylineOrder: readonly Building["id"][] = [
+  "the-fleet",
+  "99-fleet",
+  "dome",
+  "1889-atlantic",
+  "inwood",
+  "sunrose",
+];
+
+export const nextProjectSkyline: NextProjectSkyline = {
+  name: "Greenpoint Waterfront",
+  hood: "Greenpoint, Brooklyn",
+  tagLabel: "Next project",
+  year: "2028",
+  statusLabel: "In development",
+  homesLabel: "800 homes",
+  href: "#next",
+  cutout: "/images/buildings/greenpoint-waterfront-cutout.webp",
+  aspectRatio: 0.77,
+  lift: 1.16,
+};
+
+export const portfolioStats: PortfolioStat[] = [
+  {
+    id: "buildings",
+    value: 6,
+    displayValue: "6",
+    label: "Featured residential buildings",
+  },
+  {
+    id: "boroughs",
+    value: 2,
+    displayValue: "2",
+    label: "Boroughs, Brooklyn and Manhattan",
+  },
+  {
+    id: "homes",
+    value: 1447,
+    useSeparator: true,
+    displayValue: "1,447",
+    label: "Homes across these buildings",
+  },
+  {
+    id: "financing",
+    value: 1.1,
+    decimals: 1,
+    prefix: "$",
+    superscript: "B",
+    displayValue: "$1.1",
+    label: "Total project financing across these developments",
+  },
+];
+
+export const portfolioContent = {
+  eyebrow: "Portfolio",
+  titlePrefix: "Featured",
+  titleEmphasis: "developments",
+  description:
+    "A selection of our largest recent buildings, from Inwood to Bedford-Stuyvesant. The full list is in our building directory below.",
+  desktopHint: "Select a building",
+  mobileHint: "Swipe to explore →",
+} as const;
 
 export function getBuildingById(id: Building["id"]): Building | undefined {
   return buildings.find((building) => building.id === id);

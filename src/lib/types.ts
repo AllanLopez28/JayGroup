@@ -21,6 +21,31 @@ export interface Building {
   url?: string;
   image?: string;
   cutout?: string;
+  cutoutAspectRatio?: number;
+}
+
+export interface PortfolioStat {
+  id: string;
+  value: number;
+  decimals?: number;
+  prefix?: string;
+  superscript?: string;
+  useSeparator?: boolean;
+  displayValue: string;
+  label: string;
+}
+
+export interface NextProjectSkyline {
+  name: string;
+  hood: string;
+  tagLabel: string;
+  year: string;
+  statusLabel: string;
+  homesLabel: string;
+  href: string;
+  cutout: string;
+  aspectRatio: number;
+  lift: number;
 }
 
 export interface HeroClip {
