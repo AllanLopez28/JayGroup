@@ -40,7 +40,7 @@ export const siteConfig = {
 export const mainNav: NavItem[] = [
   { label: "Our Story", href: "#story" },
   { label: "Properties", href: "#figures" },
-  { label: "Commercial", href: "#retail" },
+ // { label: "Commercial", href: "#retail" },
   { label: "In-Development", href: "#next" },
 ];
 

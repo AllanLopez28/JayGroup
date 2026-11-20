@@ -1,26 +1,31 @@
-import { Archivo, IBM_Plex_Mono, Instrument_Serif } from "next/font/google";
+import {
+  EB_Garamond,
+  Playfair_Display,
+  Plus_Jakarta_Sans,
+} from "next/font/google";
 
-export const archivo = Archivo({
+export const playfairDisplay = Playfair_Display({
   subsets: ["latin"],
-  axes: ["wdth"],
+  weight: ["400", "500", "600"],
   style: ["normal", "italic"],
-  variable: "--font-archivo",
+  variable: "--font-playfair",
   display: "swap",
 });
 
-export const instrumentSerif = Instrument_Serif({
-  subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
-  variable: "--font-instrument-serif",
-  display: "swap",
-});
-
-export const ibmPlexMono = IBM_Plex_Mono({
+export const ebGaramond = EB_Garamond({
   subsets: ["latin"],
   weight: ["400", "500"],
-  variable: "--font-plex-mono",
+  style: ["normal", "italic"],
+  variable: "--font-eb-garamond",
   display: "swap",
 });
 
-export const fontVariables = `${archivo.variable} ${instrumentSerif.variable} ${ibmPlexMono.variable}`;
+export const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
+  variable: "--font-jakarta",
+  display: "swap",
+});
+
+export const fontVariables = `${playfairDisplay.variable} ${ebGaramond.variable} ${plusJakartaSans.variable}`;

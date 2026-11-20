@@ -11,7 +11,7 @@ export function Footer() {
       <Container className="space-y-12">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div className="space-y-3">
-            <h2 className="font-mono text-xs uppercase tracking-[0.12em] text-brass">
+            <h2 className="font-sans text-xs font-medium uppercase tracking-[0.14em] text-brass">
               Office
             </h2>
             <address className="not-italic text-sm text-fog">
@@ -21,7 +21,7 @@ export function Footer() {
           </div>
 
           <div className="space-y-3">
-            <h2 className="font-mono text-xs uppercase tracking-[0.12em] text-brass">
+            <h2 className="font-sans text-xs font-medium uppercase tracking-[0.14em] text-brass">
               Contact
             </h2>
             <ul className="space-y-1 text-sm text-fog">
@@ -45,7 +45,7 @@ export function Footer() {
           </div>
 
           <div className="space-y-3">
-            <h2 className="font-mono text-xs uppercase tracking-[0.12em] text-brass">
+            <h2 className="font-sans text-xs font-medium uppercase tracking-[0.14em] text-brass">
               Follow
             </h2>
             <ul className="space-y-1 text-sm text-fog">
@@ -55,7 +55,7 @@ export function Footer() {
           </div>
 
           <div className="space-y-3">
-            <h2 className="font-mono text-xs uppercase tracking-[0.12em] text-brass">
+            <h2 className="font-sans text-xs font-medium uppercase tracking-[0.14em] text-brass">
               Explore
             </h2>
             <ul className="grid grid-cols-2 gap-x-4 gap-y-1 text-sm text-fog">

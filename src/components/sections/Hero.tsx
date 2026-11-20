@@ -56,7 +56,7 @@ export function Hero() {
 
           <Link
             href={heroContent.scrollTarget}
-            className="inline-flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-[0.12em] text-fog transition-colors hover:text-mist"
+            className="inline-flex items-center gap-2.5 font-sans text-[11px] font-medium uppercase tracking-[0.15em] text-fog transition-colors hover:text-mist"
           >
             <span aria-hidden="true" className="scroll-cue-line !h-4" />
             <span>Scroll</span>

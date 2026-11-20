@@ -38,7 +38,7 @@ export function MobileMenu({
             onClick={onClose}
             className="mobile-nav-link flex items-baseline gap-3.5 py-1 text-mist transition-colors hover:text-brass"
           >
-            <small className="font-mono text-xs uppercase tracking-[0.1em] text-fog">
+            <small className="font-sans text-xs font-medium uppercase tracking-[0.14em] text-fog">
               {numberLabel}
             </small>
             <span>{item.label}</span>
