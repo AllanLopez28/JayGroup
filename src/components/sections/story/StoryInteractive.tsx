@@ -19,8 +19,6 @@ export function StoryInteractive({ content }: StoryInteractiveProps) {
     deckRef,
     railRef,
     endRef,
-    dragCurRef,
-    hintRef,
     setTitleWordRef,
     setCardRef,
     setChipRef,
@@ -128,10 +126,6 @@ export function StoryInteractive({ content }: StoryInteractiveProps) {
             <div className="story-ph">
               <div className="yr" aria-hidden="true">
                 {content.chapter1.year}
-              </div>
-              <div ref={hintRef} className="story-hint" aria-hidden="true">
-                <i />
-                <span>Swipe</span>
               </div>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
@@ -301,10 +295,6 @@ export function StoryInteractive({ content }: StoryInteractiveProps) {
         </div>
       </div>
 
-      {/* Desktop mouse drag cursor */}
-      <div ref={dragCurRef} className="story-cur" aria-hidden="true">
-        Drag
-      </div>
     </section>
   );
 }

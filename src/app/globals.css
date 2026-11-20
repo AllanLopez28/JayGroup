@@ -477,10 +477,7 @@
   }
 
   .story-kicker::before {
-    content: "";
-    width: 28px;
-    height: 1px;
-    background: var(--color-brass);
+    display: none;
   }
 
   .story-title {
@@ -1287,44 +1284,7 @@
 
   /* Follow drag cursor (desktop mouse only) */
   .story-cur {
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 20;
-    width: 84px;
-    height: 84px;
-    margin: -42px 0 0 -42px;
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    background: var(--color-night);
-    color: #ffffff;
-    font-family: var(--font-sans);
-    font-weight: 500;
-    font-size: 11px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    pointer-events: none;
-    opacity: 0;
-    transform: translate3d(var(--x, 0), var(--y, 0), 0) scale(0.4);
-    transition:
-      opacity 0.3s var(--ease-soft),
-      transform 0.35s var(--ease-expo);
-  }
-
-  .story-cur.on {
-    opacity: 1;
-    transform: translate3d(var(--x, 0), var(--y, 0), 0) scale(1);
-  }
-
-  .story-cur.down {
-    transform: translate3d(var(--x, 0), var(--y, 0), 0) scale(0.82);
-  }
-
-  @media (hover: none) {
-    .story-cur {
-      display: none;
-    }
+    display: none !important;
   }
 
   /* Tablet / Mobile (<= 980px): matches the-jay-group-about-movil.html */
@@ -1361,7 +1321,7 @@
     }
 
     .story-kicker::before {
-      width: 24px;
+      display: none;
     }
 
     .story-title {
@@ -1489,37 +1449,7 @@
     }
 
     .story-hint {
-      position: absolute;
-      right: 14px;
-      bottom: 22px;
-      z-index: 4;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 14px;
-      border-radius: 9999px;
-      background: rgb(7 11 32 / 0.82);
-      font-family: var(--font-sans);
-      font-weight: 500;
-      font-size: 10.5px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #ffffff;
-      pointer-events: none;
-      transition: opacity 0.5s var(--ease-soft);
-    }
-
-    .story-hint i {
-      display: block;
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      background: var(--color-mist);
-      animation: story-swipe 1.8s var(--ease-soft) infinite;
-    }
-
-    .story-hint.gone {
-      opacity: 0;
+      display: none !important;
     }
 
     .story-c2 .mosaic {
