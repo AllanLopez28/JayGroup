@@ -53,7 +53,7 @@ export const mobileNav: NavItem[] = [
   { label: "Our Story", href: "#story" },
   { label: "Properties", href: "#figures" },
   { label: "In Development", href: "#next" },
-  { label: "Find a Home", href: "#find" },
+  { label: "Brokers", href: "#find" },
   { label: "Commercial", href: "#retail" },
   { label: "Locations", href: "#locations" },
   { label: "Residents", href: "#residents" },

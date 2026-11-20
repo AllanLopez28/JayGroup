@@ -31,7 +31,7 @@ export const heroContent = {
     href: "#figures",
   } satisfies NavItem,
   secondaryCta: {
-    label: "Find a Home",
+    label: "Brokers",
     href: "#find",
   } satisfies NavItem,
   scrollTarget: "#story",
