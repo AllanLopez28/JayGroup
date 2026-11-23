@@ -52,10 +52,10 @@ export const headerCta: NavItem = {
 export const mobileNav: NavItem[] = [
   { label: "Our Story", href: "#story" },
   { label: "Properties", href: "#figures" },
-  { label: "In Development", href: "#next" },
-  { label: "Brokers", href: "#find" },
-  { label: "Commercial", href: "#retail" },
-  { label: "Locations", href: "#locations" },
+  // { label: "In Development", href: "#next" },
+  // { label: "Brokers", href: "#find" },
+  // { label: "Commercial", href: "#retail" },
+  // { label: "Locations", href: "#locations" },
   { label: "Residents", href: "#residents" },
   { label: "Contact", href: "#contact" },
 ];
