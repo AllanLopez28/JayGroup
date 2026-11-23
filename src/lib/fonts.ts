@@ -1,22 +1,17 @@
-import {
-  EB_Garamond,
-  Playfair_Display,
-  Plus_Jakarta_Sans,
-} from "next/font/google";
+import { Anton, Libre_Bodoni, Plus_Jakarta_Sans } from "next/font/google";
 
-export const playfairDisplay = Playfair_Display({
+export const anton = Anton({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  style: ["normal", "italic"],
-  variable: "--font-playfair",
+  weight: "400",
+  variable: "--font-anton",
   display: "swap",
 });
 
-export const ebGaramond = EB_Garamond({
+export const libreBodoni = Libre_Bodoni({
   subsets: ["latin"],
-  weight: ["400", "500"],
+  weight: ["400", "500", "600", "700"],
   style: ["normal", "italic"],
-  variable: "--font-eb-garamond",
+  variable: "--font-libre-bodoni",
   display: "swap",
 });
 
@@ -28,4 +23,4 @@ export const plusJakartaSans = Plus_Jakarta_Sans({
   display: "swap",
 });
 
-export const fontVariables = `${playfairDisplay.variable} ${ebGaramond.variable} ${plusJakartaSans.variable}`;
+export const fontVariables = `${anton.variable} ${libreBodoni.variable} ${plusJakartaSans.variable}`;

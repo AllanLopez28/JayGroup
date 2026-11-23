@@ -15,6 +15,7 @@ export interface StoryChapterNav {
 export interface StoryContent {
   kicker: string;
   headlinePrefix: string;
+  headlineItalicWord?: string;
   headlineEmphasis: string;
   chapters: readonly StoryChapterNav[];
   chapter1: {
@@ -71,6 +72,7 @@ export interface StoryContent {
 export const storyContent: StoryContent = {
   kicker: "Our Story · Since 2012",
   headlinePrefix: "From a single brownstone to a full city block on the",
+  headlineItalicWord: "single",
   headlineEmphasis: "waterfront.",
   chapters: [
     {

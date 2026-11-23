@@ -28,13 +28,18 @@ export function Hero() {
           <h1 className="hero-h1">
             <span className="hero-line">
               <span className="hero-line-inner">
-                {heroContent.headline.line1}
+                <span className="hero-anton">
+                  {heroContent.headline.line1Bold}
+                </span>{" "}
+                <em>{heroContent.headline.line1Italic}</em>
               </span>
             </span>
             <span className="hero-line">
               <span className="hero-line-inner hero-line-delay">
-                {heroContent.headline.line2Prefix}{" "}
-                <em>{heroContent.headline.line2Emphasis}</em>
+                <em>{heroContent.headline.line2Italic}</em>{" "}
+                <span className="hero-anton">
+                  {heroContent.headline.line2Bold}
+                </span>
               </span>
             </span>
           </h1>

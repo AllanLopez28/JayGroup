@@ -37,13 +37,25 @@ export function StoryInteractive({ content }: StoryInteractiveProps) {
         <div>
           <div className="story-kicker">{content.kicker}</div>
           <h2 ref={titleRef} id="storyTitle" className="story-title">
-            {prefixWords.map((word, idx) => (
-              <Fragment key={`title-w-${idx}`}>
-                <span ref={setTitleWordRef(idx)} className="w">
-                  {word}
-                </span>{" "}
-              </Fragment>
-            ))}
+            {prefixWords.map((word, idx) => {
+              const isItalicAccent =
+                content.headlineItalicWord !== undefined &&
+                word.toLowerCase() ===
+                  content.headlineItalicWord.toLowerCase();
+              return (
+                <Fragment key={`title-w-${idx}`}>
+                  {isItalicAccent ? (
+                    <em ref={setTitleWordRef(idx)} className="w story-em-ink">
+                      {word}
+                    </em>
+                  ) : (
+                    <span ref={setTitleWordRef(idx)} className="w">
+                      {word}
+                    </span>
+                  )}{" "}
+                </Fragment>
+              );
+            })}
             <em ref={setTitleWordRef(prefixWords.length)} className="w">
               {content.headlineEmphasis}
             </em>

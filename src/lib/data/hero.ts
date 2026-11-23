@@ -21,9 +21,10 @@ export const heroClips: HeroClip[] = [
 
 export const heroContent = {
   headline: {
-    line1: "Built for",
-    line2Prefix: "New",
-    line2Emphasis: "York.",
+    line1Bold: "Built",
+    line1Italic: "for",
+    line2Italic: "New",
+    line2Bold: "YORK.",
   },
   description: siteConfig.description,
   primaryCta: {

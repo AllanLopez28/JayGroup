@@ -18,9 +18,8 @@
 }
 
 @theme inline {
-  --font-display: var(--font-playfair), Georgia, "Times New Roman", serif;
-  --font-serif: var(--font-playfair), Georgia, "Times New Roman", serif;
-  --font-editorial: var(--font-eb-garamond), Garamond, Georgia, serif;
+  --font-display: var(--font-anton), "Arial Narrow", Impact, sans-serif;
+  --font-serif: var(--font-libre-bodoni), Georgia, "Times New Roman", serif;
   --font-sans: var(--font-jakarta), "Helvetica Neue", Arial, sans-serif;
   --font-mono: var(--font-jakarta), "Helvetica Neue", Arial, sans-serif;
 }
@@ -55,7 +54,7 @@
     font-family: var(--font-display);
     font-weight: 400;
     line-height: 1.08;
-    letter-spacing: -0.025em;
+    letter-spacing: 0.005em;
   }
 
   h1 em, h2 em, h3 em, h4 em, h5 em, h6 em, em {
@@ -269,7 +268,7 @@
     font-weight: 400;
     font-size: clamp(36px, 10vw, 56px);
     line-height: 1.1;
-    letter-spacing: -0.02em;
+    letter-spacing: 0.01em;
   }
 
   .hero-overlay {
@@ -293,17 +292,25 @@
     margin: 0;
     font-family: var(--font-display);
     font-weight: 400;
-    font-size: clamp(44px, 6.6vw, 110px);
-    line-height: 0.94;
-    letter-spacing: -0.02em;
+    font-size: clamp(40px, 5.6vw, 90px);
+    line-height: 1.10;
+    letter-spacing: -0.01em;
     text-shadow: 0 2px 40px rgba(7, 11, 32, 0.35);
+  }
+
+  .hero-h1 .hero-anton {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.005em;
   }
 
   .hero-h1 em {
     font-family: var(--font-serif);
     font-weight: 400;
     font-style: italic;
-    letter-spacing: -0.01em;
+    font-size: 1.04em;
+    letter-spacing: -0.02em;
   }
 
   .hero-line {
@@ -313,7 +320,7 @@
   }
 
   .hero-line + .hero-line {
-    margin-top: -0.08em;
+    margin-top: -0.04em;
   }
 
   .hero-line-inner {
@@ -329,9 +336,9 @@
   .hero-lead {
     margin: 0;
     max-width: 44ch;
-    font-family: var(--font-editorial);
+    font-family: var(--font-sans);
     font-weight: 400;
-    font-size: clamp(17px, 1.35vw, 21px);
+    font-size: clamp(15px, 1.15vw, 18px);
     line-height: 1.55;
     color: rgb(227 230 235 / 0.92);
     text-shadow: 0 1px 18px rgba(7, 11, 32, 0.55);
@@ -482,21 +489,26 @@
 
   .story-title {
     margin: 22px 0 0;
-    max-width: 13ch;
-    font-family: var(--font-editorial);
+    max-width: 14ch;
+    font-family: var(--font-display);
     font-weight: 400;
     font-size: clamp(38px, 4.1vw, 68px);
-    line-height: 0.94;
-    letter-spacing: -0.02em;
+    line-height: 1.04;
+    letter-spacing: 0.005em;
     color: var(--color-night);
   }
 
   .story-title em {
-    font-family: var(--font-display);
+    font-family: var(--font-serif);
     font-style: italic;
     font-weight: 400;
-    letter-spacing: -0.01em;
+    font-size: 1.04em;
+    letter-spacing: -0.02em;
     color: var(--color-brass);
+  }
+
+  .story-title em.story-em-ink {
+    color: var(--color-night);
   }
 
   .story-title .w {
@@ -813,8 +825,8 @@
     font-family: var(--font-display);
     font-weight: 400;
     font-size: clamp(24px, 2.1vw, 34px);
-    line-height: 1.08;
-    letter-spacing: -0.02em;
+    line-height: 1.12;
+    letter-spacing: 0.005em;
     color: #ffffff;
   }
 
@@ -827,10 +839,10 @@
   .story-c-p {
     margin: 14px 0 0;
     max-width: 48ch;
-    font-family: var(--font-editorial);
+    font-family: var(--font-sans);
     font-weight: 400;
-    font-size: clamp(17px, 1.25vw, 19px);
-    line-height: 1.55;
+    font-size: clamp(15px, 1.05vw, 17px);
+    line-height: 1.6;
     color: var(--color-fog);
   }
 
@@ -874,12 +886,12 @@
     left: 28px;
     bottom: 14px;
     z-index: 2;
-    font-family: var(--font-editorial);
+    font-family: var(--font-serif);
     font-weight: 400;
     font-style: italic;
     font-size: clamp(64px, 5.5vw, 96px);
     line-height: 0.85;
-    letter-spacing: -0.035em;
+    letter-spacing: -0.02em;
     color: #ffffff;
   }
 
@@ -1037,8 +1049,8 @@
     font-family: var(--font-display);
     font-weight: 400;
     font-size: clamp(76px, 7vw, 112px);
-    line-height: 0.9;
-    letter-spacing: -0.04em;
+    line-height: 0.92;
+    letter-spacing: 0;
     color: #ffffff;
     font-variant-numeric: tabular-nums;
     margin-bottom: 3px;
@@ -1071,10 +1083,10 @@
   .story-c4 .lead {
     margin: 14px 0 0;
     max-width: 44ch;
-    font-family: var(--font-editorial);
+    font-family: var(--font-sans);
     font-weight: 400;
-    font-size: clamp(17px, 1.25vw, 19px);
-    line-height: 1.5;
+    font-size: clamp(15px, 1.05vw, 17px);
+    line-height: 1.55;
     color: var(--color-steel);
   }
 
@@ -1609,7 +1621,7 @@
     font-weight: 400;
     font-size: clamp(34px, 4.4vw, 68px);
     line-height: 1.08;
-    letter-spacing: -0.02em;
+    letter-spacing: 0.005em;
     text-wrap: balance;
   }
 
@@ -1644,10 +1656,10 @@
   .figs-head p {
     margin: 0;
     max-width: 40ch;
-    font-family: var(--font-editorial);
+    font-family: var(--font-sans);
     font-weight: 400;
-    font-size: clamp(17px, 1.2vw, 19px);
-    line-height: 1.5;
+    font-size: clamp(15px, 1.05vw, 17px);
+    line-height: 1.55;
     color: var(--color-fog);
   }
 
@@ -1672,7 +1684,7 @@
     font-weight: 400;
     font-size: clamp(44px, 5.4vw, 88px);
     line-height: 1;
-    letter-spacing: -0.045em;
+    letter-spacing: 0;
     font-variant-numeric: tabular-nums;
     white-space: nowrap;
   }
@@ -2471,7 +2483,7 @@
   font-weight: 400;
   font-size: clamp(28px, 2.6vw, 40px);
   line-height: 1.12;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.005em;
   color: var(--color-night);
   max-width: 18ch;
 }
@@ -2479,10 +2491,10 @@
 .who-desc,
 .who .panel p {
   margin: 18px 0 0;
-  font-family: var(--font-editorial);
-  font-size: clamp(17px, 1.25vw, 19px);
+  font-family: var(--font-sans);
+  font-size: clamp(15px, 1.05vw, 17px);
   font-weight: 400;
-  line-height: 1.55;
+  line-height: 1.6;
   color: var(--color-steel);
   max-width: 44ch;
 }
@@ -2701,8 +2713,8 @@
   font-family: var(--font-display);
   font-weight: 400;
   font-size: clamp(54px, 9.5vw, 136px);
-  line-height: 0.98;
-  letter-spacing: -0.03em;
+  line-height: 1.02;
+  letter-spacing: 0.005em;
   color: #ffffff;
 }
 
@@ -2710,6 +2722,7 @@
   font-family: var(--font-serif);
   font-style: italic;
   font-weight: 400;
+  font-size: 1.04em;
   letter-spacing: -0.015em;
   color: var(--color-brass-light);
 }
@@ -2738,10 +2751,10 @@
 .wel-sub {
   margin: 26px 0 0;
   max-width: 46ch;
-  font-family: var(--font-editorial);
+  font-family: var(--font-sans);
   font-weight: 400;
-  font-size: clamp(18px, 1.45vw, 22px);
-  line-height: 1.55;
+  font-size: clamp(15.5px, 1.2vw, 18.5px);
+  line-height: 1.6;
   color: rgb(227 230 235 / 0.85);
   opacity: 0;
   animation: wel-up 0.9s var(--ease-expo) 0.95s forwards;
@@ -2775,8 +2788,8 @@
   font-family: var(--font-display);
   font-weight: 400;
   font-size: clamp(34px, 3vw, 48px);
-  line-height: 0.9;
-  letter-spacing: -0.03em;
+  line-height: 0.95;
+  letter-spacing: 0;
   color: #ffffff;
   font-variant-numeric: tabular-nums;
 }
@@ -2800,9 +2813,9 @@
 
 .wel-note {
   margin: 14px 0 0;
-  font-family: var(--font-editorial);
-  font-size: 15px;
-  line-height: 1.5;
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  line-height: 1.55;
   color: rgb(169 176 194 / 0.85);
 }
 
@@ -2954,8 +2967,8 @@
   font-family: var(--font-display);
   font-weight: 400;
   font-size: clamp(44px, 6.2vw, 96px);
-  line-height: 0.94;
-  letter-spacing: -0.03em;
+  line-height: 1.02;
+  letter-spacing: 0.005em;
   color: var(--color-night);
 }
 
@@ -3076,19 +3089,19 @@
   margin: 20px 0 0;
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(28px, 2.8vw, 44px);
-  line-height: 1.08;
-  letter-spacing: -0.025em;
+  font-size: clamp(28px, 2.8vw, 42px);
+  line-height: 1.12;
+  letter-spacing: 0.005em;
   color: var(--color-night);
 }
 
 .news-feat p {
   margin: 18px 0 0;
   max-width: 46ch;
-  font-family: var(--font-editorial);
+  font-family: var(--font-sans);
   font-weight: 400;
-  font-size: clamp(18px, 1.35vw, 21px);
-  line-height: 1.55;
+  font-size: clamp(15.5px, 1.1vw, 18px);
+  line-height: 1.6;
   color: var(--color-steel);
 }
 
@@ -3176,17 +3189,17 @@
   font-family: var(--font-display);
   font-weight: 400;
   font-size: clamp(20px, 1.45vw, 24px);
-  line-height: 1.18;
-  letter-spacing: -0.02em;
+  line-height: 1.2;
+  letter-spacing: 0.005em;
   color: var(--color-night);
 }
 
 .news-card p {
   margin: 10px 0 0;
-  font-family: var(--font-editorial);
+  font-family: var(--font-sans);
   font-weight: 400;
-  font-size: clamp(16px, 1.1vw, 18px);
-  line-height: 1.55;
+  font-size: clamp(14.5px, 0.98vw, 16px);
+  line-height: 1.6;
   color: var(--color-steel);
 }
 
@@ -3326,9 +3339,9 @@
   margin: 20px 0 0;
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(34px, 4.4vw, 58px);
-  line-height: 1.06;
-  letter-spacing: -0.025em;
+  font-size: clamp(34px, 4.4vw, 56px);
+  line-height: 1.1;
+  letter-spacing: 0.005em;
   color: var(--color-night);
 }
 
@@ -3375,10 +3388,10 @@
 
 .news-article-body p {
   margin: 0 0 1.45em;
-  font-family: var(--font-editorial);
+  font-family: var(--font-sans);
   font-weight: 400;
-  font-size: clamp(19px, 1.5vw, 22px);
-  line-height: 1.65;
+  font-size: clamp(16px, 1.15vw, 18px);
+  line-height: 1.75;
   color: #20263b;
 }
 
