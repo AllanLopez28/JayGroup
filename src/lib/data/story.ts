@@ -118,7 +118,7 @@ export const storyContent: StoryContent = {
     ariaLabel: "Chapter 1 of 5, 2012",
     year: "2012",
     image: {
-      src: "/images/story/17-troutman.webp",
+      src: "/images/story/construction.jpg",
       alt: "17 Troutman Street, Brooklyn",
     },
     badgeCount: 8,
@@ -132,7 +132,7 @@ export const storyContent: StoryContent = {
     ariaLabel: "Chapter 2 of 5, the portfolio",
     mosaic: [
       {
-        src: "/images/story/102-fleet-place.webp",
+        src: "/images/story/the-fleet.jpg",
         alt: "102 Fleet Place, Downtown Brooklyn",
       },
       {
@@ -140,7 +140,7 @@ export const storyContent: StoryContent = {
         alt: "401 West 207th Street, Inwood",
       },
       {
-        src: "/images/story/210-greenpoint-ave.webp",
+        src: "/images/story/210-greenpoint-ave.jpg",
         alt: "210 Greenpoint Avenue, Greenpoint",
       },
     ],

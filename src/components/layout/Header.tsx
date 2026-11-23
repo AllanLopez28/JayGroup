@@ -44,7 +44,7 @@ export function Header() {
           }`}
         >
           <Link
-            href="#top"
+            href="/#top"
             aria-label={siteConfig.logo.ariaLabel}
             onClick={isOpen ? close : undefined}
             className="shrink-0 justify-self-start"

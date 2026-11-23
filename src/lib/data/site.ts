@@ -40,30 +40,30 @@ export const siteConfig = {
 export const mainNav: NavItem[] = [
   {
     label: "About Us",
-    href: "#story",
-    children: [{ label: "News", href: "#news" }],
+    href: "/#story",
+    children: [{ label: "News", href: "/news" }],
   },
-  { label: "Properties", href: "#figures" },
- // { label: "Commercial", href: "#retail" },
-  { label: "In-Development", href: "#next" },
+  { label: "Properties", href: "/#figures" },
+ // { label: "Commercial", href: "/#retail" },
+  { label: "In-Development", href: "/#next" },
 ];
 
 export const headerCta: NavItem = {
   label: "Residents",
-  href: "#residents",
+  href: "/#residents",
 };
 
 export const mobileNav: NavItem[] = [
   {
     label: "About Us",
-    href: "#story",
-    children: [{ label: "News", href: "#news" }],
+    href: "/#story",
+    children: [{ label: "News", href: "/news" }],
   },
-  { label: "Properties", href: "#figures" },
-  // { label: "In Development", href: "#next" },
-  // { label: "Brokers", href: "#find" },
-  // { label: "Commercial", href: "#retail" },
-  // { label: "Locations", href: "#locations" },
-  { label: "Residents", href: "#residents" },
-  { label: "Contact", href: "#contact" },
+  { label: "Properties", href: "/#figures" },
+  // { label: "In Development", href: "/#next" },
+  // { label: "Brokers", href: "/#find" },
+  // { label: "Commercial", href: "/#retail" },
+  // { label: "Locations", href: "/#locations" },
+  { label: "Residents", href: "/#residents" },
+  { label: "Contact", href: "/#contact" },
 ];
