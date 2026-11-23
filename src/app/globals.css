@@ -543,7 +543,7 @@
     position: relative;
     width: 100%;
     display: grid;
-    grid-template-columns: 44px 74px 1fr auto;
+    grid-template-columns: 74px 1fr auto;
     align-items: center;
     gap: 8px;
     min-height: 54px;
@@ -886,12 +886,12 @@
     left: 28px;
     bottom: 14px;
     z-index: 2;
-    font-family: var(--font-serif);
+    font-family: var(--font-display);
     font-weight: 400;
-    font-style: italic;
+    font-style: normal;
     font-size: clamp(64px, 5.5vw, 96px);
-    line-height: 0.85;
-    letter-spacing: -0.02em;
+    line-height: 0.9;
+    letter-spacing: 0.01em;
     color: #ffffff;
   }
 
@@ -1651,6 +1651,10 @@
     justify-content: space-between;
     align-items: flex-end;
     gap: 24px;
+  }
+
+  .figs-head .eyebrow::before {
+    display: none;
   }
 
   .figs-head p {
@@ -2963,7 +2967,7 @@
 }
 
 .news-title {
-  margin: 18px 0 0;
+  margin: 0;
   font-family: var(--font-display);
   font-weight: 400;
   font-size: clamp(44px, 6.2vw, 96px);

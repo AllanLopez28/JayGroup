@@ -165,7 +165,6 @@ export function NewsInteractive({
       <div className="news-wrap">
         <header className="news-head">
           <div>
-            <div className="news-kick">{content.kicker}</div>
             <h2 ref={titleRef} id="newsTitle" className="news-title">
               <span className="m">
                 <span>{content.headlinePrefix}</span>

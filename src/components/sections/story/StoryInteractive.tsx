@@ -75,7 +75,6 @@ export function StoryInteractive({ content }: StoryInteractiveProps) {
                     onClick={() => goToChapter(idx)}
                     className={isCurrent ? "on" : ""}
                   >
-                    <span className="n">{chapter.number}</span>
                     <span className="k">{chapter.code}</span>
                     <span className="t">{chapter.desktopLabel}</span>
                     <svg
