@@ -47,6 +47,7 @@ export function useStoryCarousel(
   const ghostTimerRef = useRef<number | null>(null);
   const titleTimersRef = useRef<number[]>([]);
   const countRafsRef = useRef<number[]>([]);
+  const countTimersRef = useRef<number[]>([]);
 
   const setTitleWordRef = useCallback(
     (index: number) => (node: HTMLElement | null) => {
@@ -77,8 +78,28 @@ export function useStoryCarousel(
         return;
       }
 
+      const stepsAttr = el.getAttribute("data-count-steps");
+      if (stepsAttr) {
+        const steps = stepsAttr
+          .split(",")
+          .map((value) => Number(value.trim()))
+          .filter((value) => !Number.isNaN(value));
+
+        if (steps.length > 0) {
+          const stepDelayMs = 360;
+          el.textContent = String(steps[0]);
+          steps.slice(1).forEach((value, idx) => {
+            const timerId = window.setTimeout(() => {
+              el.textContent = String(value);
+            }, stepDelayMs * (idx + 1));
+            countTimersRef.current.push(timerId);
+          });
+          return;
+        }
+      }
+
       let startTime: number | null = null;
-      const duration = 1200;
+      const duration = 1800;
 
       const step = (timestamp: number) => {
         if (startTime === null) {
@@ -438,11 +459,13 @@ export function useStoryCarousel(
 
   useEffect(() => {
     const rafs = countRafsRef;
+    const timers = countTimersRef;
     return () => {
       if (ghostTimerRef.current !== null) {
         window.clearTimeout(ghostTimerRef.current);
       }
       rafs.current.forEach((id) => window.cancelAnimationFrame(id));
+      timers.current.forEach((id) => window.clearTimeout(id));
     };
   }, []);
 

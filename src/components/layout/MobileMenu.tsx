@@ -31,18 +31,33 @@ export function MobileMenu({
       {items.map((item, index) => {
         const numberLabel = String(index + 1).padStart(2, "0");
         return (
-          <Link
-            key={`${item.href}-${item.label}`}
-            ref={index === 0 ? firstLinkRef : undefined}
-            href={item.href}
-            onClick={onClose}
-            className="mobile-nav-link flex items-baseline gap-3.5 py-1 text-mist transition-colors hover:text-brass"
-          >
-            <small className="font-sans text-xs font-medium uppercase tracking-[0.14em] text-fog">
-              {numberLabel}
-            </small>
-            <span>{item.label}</span>
-          </Link>
+          <div key={`${item.href}-${item.label}`} className="flex flex-col">
+            <Link
+              ref={index === 0 ? firstLinkRef : undefined}
+              href={item.href}
+              onClick={onClose}
+              className="mobile-nav-link flex items-baseline gap-3.5 py-1 text-mist transition-colors hover:text-brass"
+            >
+              <small className="font-sans text-xs font-medium uppercase tracking-[0.14em] text-fog">
+                {numberLabel}
+              </small>
+              <span>{item.label}</span>
+            </Link>
+            {item.children?.length ? (
+              <div className="mb-1 ml-9 flex flex-col gap-1">
+                {item.children.map((child) => (
+                  <Link
+                    key={`${child.href}-${child.label}`}
+                    href={child.href}
+                    onClick={onClose}
+                    className="font-sans text-xs font-medium uppercase tracking-[0.16em] text-mist/70 transition-colors hover:text-brass"
+                  >
+                    {child.label}
+                  </Link>
+                ))}
+              </div>
+            ) : null}
+          </div>
         );
       })}
     </nav>

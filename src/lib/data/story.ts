@@ -42,6 +42,7 @@ export interface StoryContent {
     headingPrefix: string;
     headingEmphasis: string;
     statCount: number;
+    statSteps?: readonly number[];
     statLine1: string;
     statLine2: string;
     body: string;
@@ -162,6 +163,7 @@ export const storyContent: StoryContent = {
     headingPrefix: "Reaching new heights at 97 West Street,",
     headingEmphasis: "Greenpoint",
     statCount: 800,
+    statSteps: [100, 200, 600, 800],
     statLine1: "rental residences",
     statLine2: "on the East River",
     body: "Envisioned as a landmark development on the Greenpoint waterfront, across two towers overlooking the Manhattan skyline.",

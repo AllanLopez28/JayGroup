@@ -38,7 +38,11 @@ export const siteConfig = {
 } as const;
 
 export const mainNav: NavItem[] = [
-  { label: "Our Story", href: "#story" },
+  {
+    label: "About Us",
+    href: "#story",
+    children: [{ label: "News", href: "#news" }],
+  },
   { label: "Properties", href: "#figures" },
  // { label: "Commercial", href: "#retail" },
   { label: "In-Development", href: "#next" },
@@ -50,7 +54,11 @@ export const headerCta: NavItem = {
 };
 
 export const mobileNav: NavItem[] = [
-  { label: "Our Story", href: "#story" },
+  {
+    label: "About Us",
+    href: "#story",
+    children: [{ label: "News", href: "#news" }],
+  },
   { label: "Properties", href: "#figures" },
   // { label: "In Development", href: "#next" },
   // { label: "Brokers", href: "#find" },

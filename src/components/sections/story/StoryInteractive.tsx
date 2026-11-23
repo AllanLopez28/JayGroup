@@ -192,7 +192,10 @@ export function StoryInteractive({ content }: StoryInteractiveProps) {
                 <em>{content.chapter3.headingEmphasis}</em>
               </h3>
               <div className="story-big in">
-                <b data-count={content.chapter3.statCount}>
+                <b
+                  data-count={content.chapter3.statCount}
+                  data-count-steps={content.chapter3.statSteps?.join(",")}
+                >
                   {content.chapter3.statCount}
                 </b>
                 <span>
@@ -213,7 +216,7 @@ export function StoryInteractive({ content }: StoryInteractiveProps) {
           >
             <div className="story-c-body">
               <div className="story-c-tag in">{content.chapter4.tag}</div>
-              <p className="lead in">{content.chapter4.lead}</p>
+              
               <p className="quote">
                 {quoteWords.map((word, idx) => (
                   <Fragment key={`quote-w-${idx}`}>

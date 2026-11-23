@@ -32,7 +32,7 @@ export const heroContent = {
   } satisfies NavItem,
   secondaryCta: {
     label: "Brokers",
-    href: "#find",
+    href: "/broker-portal",
   } satisfies NavItem,
   scrollTarget: "#story",
 } as const;
