@@ -72,7 +72,7 @@ export function Footer() {
 
         <div className="flex flex-col justify-between gap-4 border-t border-line-dark pt-8 text-xs text-fog md:flex-row md:items-center">
           <div className="flex flex-wrap items-center gap-4">
-            <span className="font-display text-mist">{siteConfig.tagline}</span>
+            <span className="font-serif italic text-mist">{siteConfig.tagline}</span>
             <span>{siteConfig.copyright}</span>
           </div>
 

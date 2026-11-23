@@ -1667,8 +1667,8 @@
   }
 
   .stat .n {
-    font-weight: 300;
-    font-variation-settings: "wdth" 120;
+    font-family: var(--font-display);
+    font-weight: 400;
     font-size: clamp(44px, 5.4vw, 88px);
     line-height: 1;
     letter-spacing: -0.045em;
@@ -1848,6 +1848,7 @@
     align-items: flex-start;
     justify-content: center;
     min-height: 2.5em;
+    font-family: var(--font-display);
     font-weight: 500;
     font-size: clamp(12px, 1.1vw, 15px);
     line-height: 1.25;
@@ -2041,8 +2042,9 @@
     position: absolute;
     left: -2%;
     top: -4%;
-    font-weight: 200;
-    font-variation-settings: "wdth" 125;
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
     font-size: clamp(140px, 20vw, 320px);
     line-height: 0.8;
     letter-spacing: -0.07em;
@@ -2178,8 +2180,8 @@
   }
 
   .sp-stats .v {
-    font-weight: 300;
-    font-variation-settings: "wdth" 118;
+    font-family: var(--font-display);
+    font-weight: 400;
     font-size: clamp(30px, 3vw, 46px);
     line-height: 1;
     letter-spacing: -0.03em;
@@ -2187,11 +2189,12 @@
   }
 
   .sp-stats .v.sm {
-    font-size: clamp(17px, 1.5vw, 21px);
+    font-family: var(--font-sans);
+    font-size: clamp(15px, 1.3vw, 18px);
     line-height: 1.25;
-    letter-spacing: -0.01em;
+    letter-spacing: 0.05em;
     padding-top: 6px;
-    font-variation-settings: "wdth" 100;
+    text-transform: uppercase;
   }
 
   .sp-stats .k,
@@ -2210,8 +2213,8 @@
 
   .sp-inv .v {
     margin-top: 6px;
-    font-weight: 300;
-    font-variation-settings: "wdth" 122;
+    font-family: var(--font-display);
+    font-weight: 400;
     font-size: clamp(52px, 6vw, 96px);
     line-height: 0.95;
     letter-spacing: -0.05em;
@@ -2370,3 +2373,538 @@
     animation: none !important;
   }
 }
+
+/* ==========================================================================
+   Residents & Brokers Section (#residents)
+   Matches the-jay-group-movil (4).html#residents
+   ========================================================================== */
+
+.who-section,
+.who.light {
+  background: #ffffff;
+  color: var(--color-night);
+  padding-block: clamp(96px, 11vw, 150px);
+}
+
+@media (max-width: 800px) {
+  .who-section,
+  .who.light {
+    padding-block: 72px;
+  }
+}
+
+.who-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
+  gap: 20px;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding-inline: clamp(20px, 4.5vw, 72px);
+}
+
+.who-panel,
+.who .panel {
+  position: relative;
+  border: 1px solid var(--color-line-light);
+  border-radius: 12px;
+  padding: clamp(28px, 4vw, 52px);
+  display: flex;
+  flex-direction: column;
+  min-height: 380px;
+  background: #ffffff;
+  overflow: hidden;
+  transition:
+    border-color 0.4s var(--ease-soft),
+    box-shadow 0.4s var(--ease-soft);
+}
+
+.who-panel:hover,
+.who .panel:hover {
+  border-color: rgba(199, 150, 59, 0.7);
+  box-shadow: 0 16px 36px -12px rgb(7 11 32 / 0.08);
+}
+
+.who-watermark,
+.who .panel .big {
+  position: absolute;
+  right: -0.04em;
+  bottom: -0.22em;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(120px, 15vw, 220px);
+  line-height: 1;
+  letter-spacing: -0.06em;
+  color: transparent;
+  -webkit-text-stroke: 1px rgb(22 36 75 / 0.1);
+  pointer-events: none;
+  user-select: none;
+}
+
+.who-eyebrow,
+.who .panel .eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--font-sans);
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-steel);
+}
+
+.who-eyebrow::before,
+.who .panel .eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 28px;
+  height: 1px;
+  background: var(--color-brass);
+}
+
+.who-title,
+.who .panel h3 {
+  margin: 24px 0 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(28px, 2.6vw, 40px);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--color-night);
+  max-width: 18ch;
+}
+
+.who-desc,
+.who .panel p {
+  margin: 18px 0 0;
+  font-family: var(--font-editorial);
+  font-size: clamp(17px, 1.25vw, 19px);
+  font-weight: 400;
+  line-height: 1.55;
+  color: var(--color-steel);
+  max-width: 44ch;
+}
+
+.who-act,
+.who .panel .act {
+  margin-top: auto;
+  padding-top: 36px;
+  position: relative;
+  z-index: 1;
+}
+
+.who-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 50px;
+  padding: 14px 28px;
+  border-radius: 9999px;
+  font-family: var(--font-sans);
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    background 0.35s var(--ease-soft),
+    color 0.35s var(--ease-soft),
+    border-color 0.35s var(--ease-soft);
+}
+
+.who-btn-solid {
+  background: var(--color-night);
+  color: #ffffff;
+  border: 1px solid var(--color-night);
+}
+
+.who-btn-solid:hover {
+  background: var(--color-brass);
+  border-color: var(--color-brass);
+  color: var(--color-night);
+}
+
+.who-btn-solid .who-ar {
+  width: 16px;
+  height: 10px;
+  transition: transform 0.4s var(--ease-expo);
+}
+
+.who-btn-solid:hover .who-ar {
+  transform: translateX(4px);
+}
+
+.who-btn-outline {
+  background: transparent;
+  color: var(--color-night);
+  border: 1px solid var(--color-night);
+}
+
+.who-btn-outline:hover {
+  background: var(--color-night);
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   Resident Portal Welcome & Redirect Screen (/resident-portal)
+   Matches reference HTML with unified site typography
+   ========================================================================== */
+
+.wel {
+  --wel-pad: clamp(22px, 5vw, 80px);
+  --wel-shift: clamp(0px, 9vw, 170px);
+  --wel-dur: 4.2s;
+
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow: hidden;
+  background: var(--color-night);
+  color: var(--color-mist);
+  padding: clamp(22px, 4vh, 40px) var(--wel-pad)
+    calc(clamp(26px, 5vh, 52px) + env(safe-area-inset-bottom, 0px));
+}
+
+.wel-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.wel-bg-img {
+  object-fit: cover;
+  object-position: 60% 50%;
+  transform: scale(1.14);
+  opacity: 0;
+  animation:
+    wel-bg-in 1.4s var(--ease-soft) 0.1s forwards,
+    wel-push calc(var(--wel-dur) + 4s) linear forwards;
+}
+
+.wel-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgb(7 11 32 / 0.94) 0%,
+      rgb(7 11 32 / 0.82) 46%,
+      rgb(7 11 32 / 0.3) 80%,
+      rgb(7 11 32 / 0.35) 100%
+    ),
+    linear-gradient(0deg, rgb(7 11 32 / 0.9) 0%, rgb(7 11 32 / 0) 45%);
+}
+
+.wel-top,
+.wel-mid {
+  position: relative;
+  z-index: 1;
+}
+
+.wel-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.wel-logo-link {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  opacity: 0;
+  animation: wel-up 0.9s var(--ease-expo) 0.15s forwards;
+}
+
+.wel-logo {
+  display: block;
+  height: clamp(68px, 8vw, 92px);
+  width: auto;
+  margin-block: -16px;
+  margin-left: -16px;
+}
+
+.wel-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 0 4px;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 11.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--color-fog);
+  opacity: 0;
+  animation: wel-up 0.9s var(--ease-expo) 0.25s forwards;
+  transition: color 0.3s var(--ease-soft);
+}
+
+.wel-back:hover {
+  color: #ffffff;
+}
+
+.wel-back svg {
+  width: 14px;
+  height: 10px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.4;
+}
+
+.wel-mid {
+  width: 100%;
+  max-width: calc(820px + var(--wel-shift));
+  margin: auto 0;
+  padding: clamp(40px, 8vh, 90px) 0 clamp(20px, 4vh, 40px) var(--wel-shift);
+}
+
+.wel-kick {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 11.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-brass);
+  opacity: 0;
+  animation: wel-up 0.9s var(--ease-expo) 0.35s forwards;
+}
+
+.wel-kick::before {
+  content: "";
+  width: 28px;
+  height: 1px;
+  background: var(--color-brass);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  animation: wel-grow 0.9s var(--ease-expo) 0.45s forwards;
+}
+
+.wel-h {
+  margin: 22px 0 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(54px, 9.5vw, 136px);
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+}
+
+.wel-h em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  color: var(--color-brass-light);
+}
+
+.wel-h .wel-m {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-bottom: 0.08em;
+}
+
+.wel-h .wel-m > span {
+  display: inline-block;
+  transform: translateY(105%);
+  animation: wel-rise 1.1s var(--ease-expo) forwards;
+}
+
+.wel-h .wel-m:nth-child(1) > span {
+  animation-delay: 0.45s;
+}
+
+.wel-h .wel-m:nth-child(2) > span {
+  animation-delay: 0.6s;
+}
+
+.wel-sub {
+  margin: 26px 0 0;
+  max-width: 46ch;
+  font-family: var(--font-editorial);
+  font-weight: 400;
+  font-size: clamp(18px, 1.45vw, 22px);
+  line-height: 1.55;
+  color: rgb(227 230 235 / 0.85);
+  opacity: 0;
+  animation: wel-up 0.9s var(--ease-expo) 0.95s forwards;
+}
+
+.wel-status {
+  max-width: 520px;
+  margin-top: clamp(34px, 5vh, 52px);
+  opacity: 0;
+  animation: wel-up 0.9s var(--ease-expo) 1.1s forwards;
+}
+
+.wel-st-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 11.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-fog);
+}
+
+.wel-st-row .wel-lbl {
+  padding-bottom: 4px;
+}
+
+.wel-st-row b {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(34px, 3vw, 48px);
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  font-variant-numeric: tabular-nums;
+}
+
+.wel-bar {
+  position: relative;
+  margin-top: 14px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--color-line-dark);
+  overflow: hidden;
+}
+
+.wel-bar i {
+  position: absolute;
+  inset: 0;
+  background: var(--color-brass);
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+}
+
+.wel-note {
+  margin: 14px 0 0;
+  font-family: var(--font-editorial);
+  font-size: 15px;
+  line-height: 1.5;
+  color: rgb(169 176 194 / 0.85);
+}
+
+.wel.paused .wel-st-row .wel-lbl::after {
+  content: " — paused";
+}
+
+.wel-veil {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: var(--color-night);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.55s var(--ease-soft);
+}
+
+.wel.leaving .wel-mid,
+.wel.leaving .wel-top {
+  transition:
+    opacity 0.45s var(--ease-soft),
+    transform 0.6s var(--ease-expo);
+  opacity: 0;
+  transform: translateY(-14px);
+}
+
+.wel.leaving + .wel-veil {
+  opacity: 1;
+}
+
+@keyframes wel-bg-in {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes wel-push {
+  from {
+    transform: scale(1.14);
+  }
+  to {
+    transform: scale(1.02);
+  }
+}
+
+@keyframes wel-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes wel-rise {
+  to {
+    transform: none;
+  }
+}
+
+@keyframes wel-grow {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@media (max-width: 640px) {
+  .wel {
+    --wel-shift: 0px;
+  }
+
+  .wel-bg-img {
+    object-position: 70% 50%;
+  }
+
+  .wel-bg::after {
+    background: linear-gradient(
+      0deg,
+      rgb(7 11 32 / 0.96) 0%,
+      rgb(7 11 32 / 0.82) 50%,
+      rgb(7 11 32 / 0.45) 100%
+    );
+  }
+
+  .wel-back span {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wel *,
+  .wel *::before,
+  .wel *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0s !important;
+  }
+
+  .wel-bg-img {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
+
