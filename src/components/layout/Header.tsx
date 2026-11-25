@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 import { MobileMenu } from "@/components/layout/MobileMenu";
 import { Container } from "@/components/ui/Container";
 import { useMobileMenu } from "@/hooks/useMobileMenu";
@@ -12,31 +11,17 @@ import { mainNav, mobileNav, siteConfig } from "@/lib/data/site";
 const MOBILE_MENU_ID = "mobile-menu";
 
 export function Header() {
-  const { isSolid, isHidden } = useScrollState();
+  const { isSolid } = useScrollState();
   const { isOpen, toggle, close, burgerRef, firstLinkRef } = useMobileMenu();
-  const [hasFocusWithin, setHasFocusWithin] = useState(false);
 
   const showSolid = isSolid || isOpen;
-  const shouldHide = isHidden && !isOpen && !hasFocusWithin;
-
-  const handleFocusCapture = () => {
-    setHasFocusWithin(true);
-  };
-
-  const handleBlurCapture = (event: React.FocusEvent<HTMLElement>) => {
-    if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
-      setHasFocusWithin(false);
-    }
-  };
 
   return (
     <>
       <header
-        onFocusCapture={handleFocusCapture}
-        onBlurCapture={handleBlurCapture}
-        className={`header-safe-top fixed left-0 right-0 z-60 transition-[background-color,transform,backdrop-filter] duration-500 ease-soft ${
+        className={`header-safe-top fixed left-0 right-0 z-60 transition-[background-color,backdrop-filter] duration-500 ease-soft ${
           showSolid ? "bg-night/78 backdrop-blur-[14px]" : "bg-transparent"
-        } ${shouldHide ? "-translate-y-[110%]" : "translate-y-0"}`}
+        }`}
       >
         <Container
           className={`flex items-center justify-between gap-6 lg:grid lg:grid-cols-[1fr_auto_1fr] transition-[padding] duration-500 ease-soft ${
