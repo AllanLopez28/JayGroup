@@ -64,8 +64,7 @@ export const residentPortalConfig: ResidentPortalWelcomeContent = {
     },
     {
       label: "Residential Portal",
-      // TODO: reemplazar con la URL del Residential Portal
-      href: "#",
+      href: "/resident-portal/dashboard",
       variant: "outline",
       hasArrow: true,
       external: false,
