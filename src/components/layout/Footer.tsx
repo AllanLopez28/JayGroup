@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { mobileNav, siteConfig } from "@/lib/data/site";
@@ -79,9 +80,25 @@ export function Footer() {
           <ul className="flex flex-wrap items-center gap-4">
             {siteConfig.legalLinks.map((link) => (
               <li key={link.label}>
-                <Link href={link.href} className="hover:text-mist">
-                  {link.label}
-                </Link>
+                {link.label === "Equal Housing Opportunity" ? (
+                  <Link
+                    href={link.href}
+                    aria-label={link.label}
+                    className="inline-flex items-center opacity-75 transition-opacity hover:opacity-100"
+                  >
+                    <Image
+                      src={siteConfig.equalHousingLogo.src}
+                      alt={siteConfig.equalHousingLogo.alt}
+                      width={siteConfig.equalHousingLogo.width}
+                      height={siteConfig.equalHousingLogo.height}
+                      className="h-10 w-auto"
+                    />
+                  </Link>
+                ) : (
+                  <Link href={link.href} className="hover:text-mist">
+                    {link.label}
+                  </Link>
+                )}
               </li>
             ))}
           </ul>

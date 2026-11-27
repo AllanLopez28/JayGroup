@@ -12,15 +12,5 @@ export const metadata: Metadata = {
 };
 
 export default function ResidentPortalPage() {
-  return (
-    <>
-      <noscript>
-        <meta
-          httpEquiv="refresh"
-          content={`5;url=${residentPortalConfig.portalUrl}`}
-        />
-      </noscript>
-      <ResidentPortalWelcome content={residentPortalConfig} />
-    </>
-  );
+  return <ResidentPortalWelcome content={residentPortalConfig} />;
 }

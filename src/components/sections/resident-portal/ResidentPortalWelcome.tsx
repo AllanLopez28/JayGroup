@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { ArrowIcon } from "@/components/ui/ArrowIcon";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 import type { ResidentPortalWelcomeContent } from "@/lib/data/residents";
 import { siteConfig } from "@/lib/data/site";
@@ -13,6 +14,7 @@ export interface ResidentPortalWelcomeProps {
 
 export function ResidentPortalWelcome({ content }: ResidentPortalWelcomeProps) {
   const prefersReducedMotion = usePrefersReducedMotion();
+  const hasActions = Boolean(content.actions?.length);
   const barRef = useRef<HTMLElement | null>(null);
   const doneRef = useRef(false);
   const pausedRef = useRef(false);
@@ -39,6 +41,10 @@ export function ResidentPortalWelcome({ content }: ResidentPortalWelcomeProps) {
   }, []);
 
   useEffect(() => {
+    if (hasActions) {
+      return;
+    }
+
     doneRef.current = false;
     elapsedRef.current = 0;
     lastFrameRef.current = null;
@@ -122,7 +128,13 @@ export function ResidentPortalWelcome({ content }: ResidentPortalWelcomeProps) {
       document.removeEventListener("visibilitychange", handleVisibilityChange);
       window.removeEventListener("pageshow", handlePageShow);
     };
-  }, [cancelRedirect, content.durationMs, content.portalUrl, prefersReducedMotion]);
+  }, [
+    cancelRedirect,
+    content.durationMs,
+    content.portalUrl,
+    hasActions,
+    prefersReducedMotion,
+  ]);
 
   return (
     <>
@@ -183,16 +195,49 @@ export function ResidentPortalWelcome({ content }: ResidentPortalWelcomeProps) {
           </h1>
           <p className="wel-sub">{content.subtitle}</p>
 
-          <div className="wel-status" role="status" aria-live="polite">
-            <div className="wel-st-row">
-              <span className="wel-lbl">{content.statusLabel}</span>
-              <b>{secondsLeft}</b>
+          {hasActions ? (
+            <div className="wel-status">
+              <div className="flex flex-wrap items-center gap-4">
+                {content.actions!.map((action) => {
+                  const className = `btn ${
+                    action.variant === "solid" ? "btn-solid" : "btn-outline"
+                  }`;
+
+                  return action.external ? (
+                    <a
+                      key={action.label}
+                      href={action.href}
+                      className={className}
+                    >
+                      <span>{action.label}</span>
+                      {action.hasArrow && <ArrowIcon className="btn-arrow" />}
+                    </a>
+                  ) : (
+                    <Link
+                      key={action.label}
+                      href={action.href}
+                      className={className}
+                    >
+                      <span>{action.label}</span>
+                      {action.hasArrow && <ArrowIcon className="btn-arrow" />}
+                    </Link>
+                  );
+                })}
+              </div>
+              {content.note && <p className="wel-note">{content.note}</p>}
             </div>
-            <div className="wel-bar" aria-hidden="true">
-              <i ref={barRef} />
+          ) : (
+            <div className="wel-status" role="status" aria-live="polite">
+              <div className="wel-st-row">
+                <span className="wel-lbl">{content.statusLabel}</span>
+                <b>{secondsLeft}</b>
+              </div>
+              <div className="wel-bar" aria-hidden="true">
+                <i ref={barRef} />
+              </div>
+              <p className="wel-note">{content.note}</p>
             </div>
-            <p className="wel-note">{content.note}</p>
-          </div>
+          )}
         </section>
       </main>
       <div className="wel-veil" aria-hidden="true" />

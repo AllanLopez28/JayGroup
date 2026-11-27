@@ -18,6 +18,14 @@ export interface ResidentsContent {
   cards: ResidentCard[];
 }
 
+export interface ResidentPortalAction {
+  label: string;
+  href: string;
+  variant: "solid" | "outline";
+  hasArrow?: boolean;
+  external?: boolean;
+}
+
 export interface ResidentPortalWelcomeContent {
   portalUrl: string;
   durationMs: number;
@@ -30,6 +38,7 @@ export interface ResidentPortalWelcomeContent {
   subtitle: string;
   statusLabel: string;
   note: string;
+  actions?: ResidentPortalAction[];
 }
 
 export const residentPortalConfig: ResidentPortalWelcomeContent = {
@@ -45,6 +54,23 @@ export const residentPortalConfig: ResidentPortalWelcomeContent = {
     "Pay rent, submit maintenance requests and stay in touch with your building’s team, all in one place.",
   statusLabel: "Taking you to sign in",
   note: "You’ll sign in securely on our resident portal, powered by ManageGo.",
+  actions: [
+    {
+      label: "Login",
+      href: "https://jaygroup.managego.com/Tenant/auth",
+      variant: "solid",
+      hasArrow: true,
+      external: true,
+    },
+    {
+      label: "Residential Portal",
+      // TODO: reemplazar con la URL del Residential Portal
+      href: "#",
+      variant: "outline",
+      hasArrow: true,
+      external: false,
+    },
+  ],
 };
 
 export const brokerPortalConfig: ResidentPortalWelcomeContent = {

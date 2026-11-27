@@ -12,6 +12,12 @@ export const siteConfig = {
     alt: "The Jay Group",
     ariaLabel: "The Jay Group, back to top",
   },
+  equalHousingLogo: {
+    src: "/brand/equal-housing-opportunity.png",
+    width: 400,
+    height: 270,
+    alt: "Equal Housing Opportunity",
+  },
   office: {
     street: "84 Kosciuszko St",
     cityStateZip: "Brooklyn, NY 11205",
