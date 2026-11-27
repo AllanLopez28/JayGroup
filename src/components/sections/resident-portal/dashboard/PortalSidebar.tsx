@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { signOutAction } from "@/app/resident-portal/login/actions";
 import { Pill } from "@/components/sections/resident-portal/dashboard/Pill";
 import { PortalIcon } from "@/components/sections/resident-portal/dashboard/PortalIcon";
 import { useNavIndicator } from "@/hooks/useNavIndicator";
@@ -16,6 +17,7 @@ export interface PortalBuildingTeamInfo {
   emailHref: string;
   manageGoLabel: string;
   manageGoUrl: string;
+  signOutLabel: string;
 }
 
 export interface PortalSidebarProps {
@@ -151,6 +153,14 @@ export function PortalSidebar({
         >
           {buildingTeam.manageGoLabel}
         </Pill>
+        <form action={signOutAction} className="pt-1">
+          <button
+            type="submit"
+            className="flex min-h-[44px] w-full cursor-pointer items-center justify-center rounded-[4px] border border-mist/20 bg-transparent px-3 text-xs font-semibold uppercase tracking-[0.12em] text-mist/85 transition-colors duration-300 hover:border-mist/45 hover:bg-mist/8 hover:text-white"
+          >
+            {buildingTeam.signOutLabel}
+          </button>
+        </form>
       </div>
     </aside>
   );

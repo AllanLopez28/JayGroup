@@ -14,6 +14,14 @@ Sitio web corporativo de **The Jay Group** (desarrolladora inmobiliaria en Nueva
 
 - **Node.js** 20.9 o superior (`.nvmrc` fijado en `20`)
 
+## Variables de entorno
+
+Copia `.env.example` a `.env.local` antes de iniciar el servidor:
+
+| Variable | Valores | Descripción |
+| --- | --- | --- |
+| `AUTH_MODE` | `mock` | Selecciona el adaptador de autenticación del Resident Portal (`src/lib/auth/provider.ts`). En modo `mock` (demo) cualquier email válido y contraseña no vacía inician sesión. Si falta o tiene un valor no reconocido, la app lanza un error de configuración en lugar de caer en modo demo en silencio. |
+
 ## Scripts
 
 ```bash

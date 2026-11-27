@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { signOutAction } from "@/app/resident-portal/login/actions";
 import { Pill } from "@/components/sections/resident-portal/dashboard/Pill";
 import {
   PortalSidebar,
@@ -85,16 +86,25 @@ export function PortalShell({
                   {buildingTeam.email}
                 </a>
               </p>
-              <Pill
-                href={buildingTeam.manageGoUrl}
-                external
-                variant="light"
-                small
-                arrow
-                className="self-start"
-              >
-                {buildingTeam.manageGoLabel}
-              </Pill>
+              <div className="flex flex-wrap items-center gap-3">
+                <Pill
+                  href={buildingTeam.manageGoUrl}
+                  external
+                  variant="light"
+                  small
+                  arrow
+                >
+                  {buildingTeam.manageGoLabel}
+                </Pill>
+                <form action={signOutAction}>
+                  <button
+                    type="submit"
+                    className="flex min-h-[44px] cursor-pointer items-center justify-center rounded-[4px] border border-mist/20 bg-transparent px-4 text-xs font-semibold uppercase tracking-[0.12em] text-mist/85 transition-colors duration-300 hover:border-mist/45 hover:bg-mist/8 hover:text-white"
+                  >
+                    {buildingTeam.signOutLabel}
+                  </button>
+                </form>
+              </div>
             </aside>
           </div>
         </main>

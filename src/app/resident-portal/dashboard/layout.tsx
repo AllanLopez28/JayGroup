@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import { redirect } from "next/navigation";
 import type { ReactNode } from "react";
 import { PortalShell } from "@/components/sections/resident-portal/dashboard/PortalShell";
+import { getSession } from "@/lib/auth/session";
 import {
   portalNavItems,
   portalShellContent,
@@ -16,11 +18,16 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ResidentDashboardLayout({
+export default async function ResidentDashboardLayout({
   children,
 }: Readonly<{
   children: ReactNode;
 }>) {
+  const session = await getSession();
+  if (!session) {
+    redirect("/resident-portal/login");
+  }
+
   return (
     <PortalShell
       logo={{

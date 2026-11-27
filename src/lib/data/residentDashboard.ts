@@ -65,6 +65,7 @@ export const portalShellContent = {
     emailHref: siteConfig.contact.emailHref,
     manageGoLabel: "Pay in ManageGo",
     manageGoUrl: residentPortalConfig.portalUrl,
+    signOutLabel: "Sign out",
   },
   notificationsAriaLabel: (count: number) =>
     count > 0 ? `Notifications, ${count} new` : "Notifications",

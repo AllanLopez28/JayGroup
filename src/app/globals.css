@@ -24,6 +24,7 @@
   --color-portal-bg: #f4f5f8;
   --color-success: #1f5c3a;
   --color-success-bg: #e8f1ec;
+  --color-danger: #a3302a;
 
   --ease-soft: cubic-bezier(0.22, 0.61, 0.36, 1);
   --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
@@ -3895,6 +3896,283 @@
   .dash-toast {
     transition: none !important;
     animation: none !important;
+  }
+}
+
+/* resident login */
+@keyframes login-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes login-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes login-pop {
+  0% {
+    transform: scale(0.4);
+  }
+  60% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes login-shake {
+  0%,
+  100% {
+    transform: none;
+  }
+  20% {
+    transform: translateX(-8px);
+  }
+  40% {
+    transform: translateX(7px);
+  }
+  60% {
+    transform: translateX(-5px);
+  }
+  80% {
+    transform: translateX(3px);
+  }
+}
+
+.login-panel {
+  opacity: 0;
+  animation: login-up 0.9s var(--ease-expo) 0.05s forwards;
+}
+
+.login-st {
+  opacity: 0;
+  animation: login-up 0.8s var(--ease-expo) forwards;
+  animation-delay: calc(var(--i, 0) * 70ms + 300ms);
+}
+
+.login-brand {
+  display: block;
+  width: 128px;
+  height: 56px;
+  background: var(--color-portal-night);
+  -webkit-mask-position: left center;
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-position: left center;
+  mask-size: contain;
+  mask-repeat: no-repeat;
+}
+
+.login-input {
+  width: 100%;
+  min-height: 54px;
+  padding: 0 16px;
+  border-radius: 4px;
+  border: 1px solid var(--color-portal-line-2);
+  background: #ffffff;
+  font-size: 16px;
+  color: var(--color-portal-night);
+  transition:
+    border-color 0.3s var(--ease-soft),
+    box-shadow 0.3s var(--ease-soft),
+    background-color 0.3s var(--ease-soft);
+}
+
+@media (min-width: 1024px) {
+  .login-input {
+    font-size: 15.5px;
+  }
+}
+
+.login-input::placeholder {
+  color: #8a90a2;
+}
+
+.login-input:hover:not(:read-only) {
+  border-color: #c5cad6;
+}
+
+.login-input:focus {
+  outline: none;
+  border-color: var(--color-navy);
+  box-shadow: 0 0 0 3px rgb(22 36 75 / 0.12);
+}
+
+.login-field-bad .login-input {
+  border-color: var(--color-danger);
+}
+
+.login-field-bad .login-input:focus {
+  border-color: var(--color-danger);
+  box-shadow: 0 0 0 3px rgb(163 48 42 / 0.12);
+}
+
+.login-focus-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--color-brass);
+  border-radius: 0 0 4px 4px;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  transition: transform 0.5s var(--ease-expo);
+  pointer-events: none;
+}
+
+.login-input:focus ~ .login-focus-line {
+  transform: scaleX(1);
+}
+
+.login-err-msg {
+  animation: login-up 0.35s var(--ease-expo);
+}
+
+.login-forgot {
+  position: relative;
+}
+
+.login-forgot::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 8px;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: 100% 50%;
+  transition: transform 0.5s var(--ease-expo);
+}
+
+.login-forgot:hover::after {
+  transform: scaleX(1);
+  transform-origin: 0 50%;
+}
+
+.login-go {
+  transition:
+    background-color 0.3s var(--ease-soft),
+    transform 0.2s var(--ease-soft),
+    box-shadow 0.4s var(--ease-soft);
+}
+
+.login-go:hover:not(:disabled):not(.is-busy):not(.is-ok) {
+  background: var(--color-portal-night);
+  box-shadow: 0 16px 30px -18px rgb(12 17 41 / 0.7);
+}
+
+.login-go:active:not(:disabled):not(.is-busy):not(.is-ok) {
+  transform: scale(0.985);
+}
+
+.login-go .login-go-ar {
+  transition:
+    transform 0.5s var(--ease-expo),
+    background-color 0.3s var(--ease-soft),
+    color 0.3s var(--ease-soft);
+}
+
+.login-go:hover:not(:disabled):not(.is-busy):not(.is-ok) .login-go-ar {
+  transform: translateX(4px) rotate(-45deg);
+}
+
+.login-go.is-busy {
+  pointer-events: none;
+}
+
+.login-go .login-spin {
+  animation: login-spin 0.8s linear infinite;
+}
+
+.login-go.is-ok {
+  background: var(--color-success);
+}
+
+.login-go.is-ok .login-go-ar {
+  background: #ffffff;
+  color: var(--color-success);
+  transform: none;
+}
+
+.login-go.is-ok .login-ck {
+  animation: login-pop 0.4s var(--ease-expo);
+}
+
+.login-form-shake {
+  opacity: 1 !important;
+  animation: login-shake 0.45s var(--ease-soft);
+}
+
+.login-alt-card {
+  transition:
+    border-color 0.35s var(--ease-soft),
+    transform 0.45s var(--ease-expo),
+    box-shadow 0.45s var(--ease-soft);
+}
+
+.login-alt-card:hover {
+  border-color: var(--color-navy);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px -20px rgb(12 17 41 / 0.5);
+}
+
+.login-alt-card svg {
+  transition: transform 0.5s var(--ease-expo);
+}
+
+.login-alt-card:hover svg {
+  transform: translateX(4px);
+}
+
+.login-veil {
+  position: absolute;
+  inset: 0;
+  background: var(--color-portal-night);
+  transform: translateY(100%);
+  visibility: hidden;
+  transition:
+    transform 0.7s var(--ease-expo),
+    visibility 0s 0.7s;
+}
+
+.login-veil.is-on {
+  transform: none;
+  visibility: visible;
+  transition: transform 0.7s var(--ease-expo);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .login-panel,
+  .login-st,
+  .login-err-msg,
+  .login-form-shake,
+  .login-go .login-spin,
+  .login-go.is-ok .login-ck {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .login-input,
+  .login-focus-line,
+  .login-forgot::after,
+  .login-go,
+  .login-go .login-go-ar,
+  .login-alt-card,
+  .login-alt-card svg,
+  .login-veil {
+    transition: none !important;
   }
 }
 

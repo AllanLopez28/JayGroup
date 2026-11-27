@@ -1,3 +1,5 @@
+import { siteConfig } from "@/lib/data/site";
+
 export interface ResidentCard {
   watermark: string;
   eyebrow: string;
@@ -64,7 +66,7 @@ export const residentPortalConfig: ResidentPortalWelcomeContent = {
     },
     {
       label: "Residential Portal",
-      href: "/resident-portal/dashboard",
+      href: "/resident-portal/login",
       variant: "outline",
       hasArrow: true,
       external: false,
@@ -120,4 +122,85 @@ export const residentsContent: ResidentsContent = {
       },
     },
   ],
+};
+
+export interface ResidentLoginAltCard {
+  id: string;
+  eyebrow: string;
+  label: string;
+  href?: string;
+}
+
+export interface ResidentLoginConfig {
+  brandAriaLabel: string;
+  brandLogoSrc: string;
+  eyebrow: string;
+  title: string;
+  lead: string;
+  demoNotice: string;
+  emailLabel: string;
+  emailPlaceholder: string;
+  passwordLabel: string;
+  passwordPlaceholder: string;
+  showPasswordLabel: string;
+  hidePasswordLabel: string;
+  capsLockWarning: string;
+  rememberLabel: string;
+  forgotPassword: {
+    label: string;
+    href?: string;
+  };
+  submitIdleLabel: string;
+  submitBusyLabel: string;
+  submitSuccessLabel: string;
+  dividerLabel: string;
+  altCards: readonly ResidentLoginAltCard[];
+  unavailableTooltip: string;
+  helpLabel: string;
+  helpPhone: string;
+  helpPhoneHref: string;
+  helpEmail: string;
+  helpEmailHref: string;
+}
+
+export const residentLoginConfig: ResidentLoginConfig = {
+  brandAriaLabel: "The Jay Group home",
+  brandLogoSrc: siteConfig.logo.src,
+  eyebrow: "Resident Portal",
+  title: "Sign in",
+  lead: "Use the email address on your lease.",
+  demoNotice: "Demo mode — any email and password will sign you in.",
+  emailLabel: "Email address",
+  emailPlaceholder: "name@email.com",
+  passwordLabel: "Password",
+  passwordPlaceholder: "Your password",
+  showPasswordLabel: "Show password",
+  hidePasswordLabel: "Hide password",
+  capsLockWarning: "Caps Lock is on.",
+  rememberLabel: "Keep me signed in",
+  forgotPassword: {
+    label: "Forgot password?",
+  },
+  submitIdleLabel: "Sign in",
+  submitBusyLabel: "Signing in",
+  submitSuccessLabel: "Welcome back",
+  dividerLabel: "New here?",
+  altCards: [
+    {
+      id: "activate",
+      eyebrow: "Already a resident?",
+      label: "Activate your account",
+    },
+    {
+      id: "apply",
+      eyebrow: "Looking for a home?",
+      label: "Rental application",
+    },
+  ],
+  unavailableTooltip: "Available soon",
+  helpLabel: "Need help signing in?",
+  helpPhone: siteConfig.contact.phone,
+  helpPhoneHref: siteConfig.contact.phoneHref,
+  helpEmail: siteConfig.contact.email,
+  helpEmailHref: siteConfig.contact.emailHref,
 };
