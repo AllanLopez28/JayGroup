@@ -4,7 +4,7 @@ import type { HeroClip, NavItem } from "@/lib/types";
 export const heroClips: HeroClip[] = [
   {
     id: "the-fleet-01",
-    src: "/videos/TheFleetBrooklyn.mp4",
+    src: "/videos/TheFleetBrooklyn0.mp4",
     buildingId: "the-fleet",
   },
   {
@@ -14,7 +14,7 @@ export const heroClips: HeroClip[] = [
   },
   {
     id: "the-fleet-02",
-    src: "/videos/TheFleetBrooklyn0.mp4",
+    src: "/videos/TheFleetBrooklyn.mp4",
     buildingId: "the-fleet",
   },
 ];

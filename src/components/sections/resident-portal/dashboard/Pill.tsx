@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { ButtonHTMLAttributes, CSSProperties, ReactNode } from "react";
 import { PortalIcon } from "@/components/sections/resident-portal/dashboard/PortalIcon";
 
-export type PillVariant = "dark" | "light";
+export type PillVariant = "dark" | "light" | "ghost";
 
 interface BasePillProps {
   children: ReactNode;
@@ -16,12 +16,14 @@ interface BasePillProps {
 type PillAsLinkProps = BasePillProps & {
   href: string;
   external?: boolean;
+  download?: string;
 };
 
 type PillAsButtonProps = BasePillProps &
   Omit<ButtonHTMLAttributes<HTMLButtonElement>, keyof BasePillProps> & {
     href?: undefined;
     external?: undefined;
+    download?: undefined;
   };
 
 export type PillProps = PillAsLinkProps | PillAsButtonProps;
@@ -38,15 +40,19 @@ export function Pill(props: PillProps) {
 
   const variantClasses =
     variant === "dark"
-      ? "bg-navy text-white hover:bg-portal-night hover:shadow-[0_10px_24px_-12px_rgba(12,17,41,0.6)]"
-      : "bg-mist text-portal-night hover:bg-white";
+      ? "border-0 bg-navy text-white hover:bg-portal-night hover:shadow-[0_10px_24px_-12px_rgba(12,17,41,0.6)]"
+      : variant === "ghost"
+        ? "border border-portal-line-2 bg-transparent text-portal-night hover:border-portal-night"
+        : "border-0 bg-mist text-portal-night hover:bg-white";
 
   const sizeClasses = small
     ? `min-h-[44px] ${arrow ? "pl-4 pr-[6px]" : "px-4"} text-[11.5px] font-semibold tracking-[0.06em] whitespace-nowrap`
-    : `min-h-[52px] ${arrow ? "pl-[26px] pr-[7px]" : "px-[26px]"} text-[12.5px] font-bold tracking-[0.1em]`;
+    : `min-h-[52px] ${arrow ? "pl-[26px] pr-[7px]" : "px-[30px]"} text-[12.5px] font-bold tracking-[0.1em]`;
 
   const classes = [
-    "dash-pill inline-flex items-center justify-between gap-4 rounded-full border-0 uppercase no-underline cursor-pointer disabled:cursor-not-allowed disabled:opacity-50",
+    "dash-pill inline-flex items-center justify-center gap-3.5 rounded-full uppercase no-underline cursor-pointer disabled:cursor-not-allowed",
+    variant === "dark" ? "dash-pill-dark" : "disabled:opacity-50",
+    arrow ? "justify-between gap-4" : "",
     variantClasses,
     sizeClasses,
     className,
@@ -56,7 +62,7 @@ export function Pill(props: PillProps) {
 
   const inner = (
     <>
-      <span>{children}</span>
+      <span className="inline-flex items-center gap-3">{children}</span>
       {arrow && (
         <span
           className={`dash-pill-ar grid shrink-0 place-items-center rounded-full bg-brass text-portal-night ${
@@ -70,6 +76,19 @@ export function Pill(props: PillProps) {
   );
 
   if (typeof props.href === "string") {
+    if (props.download) {
+      return (
+        <a
+          href={props.href}
+          download={props.download}
+          className={classes}
+          style={style}
+        >
+          {inner}
+        </a>
+      );
+    }
+
     if (props.external) {
       return (
         <a

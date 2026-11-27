@@ -325,26 +325,50 @@ export function BuildingDialog({
           )}
 
           <div className="sp-act">
-            {currentBuilding.url ? (
-              <a
-                href={currentBuilding.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-solid"
-              >
-                <span>Visit Website</span>
-                <ArrowIcon className="btn-arrow" />
-              </a>
-            ) : (
-              <span
-                aria-disabled="true"
-                title="Website [URL] to be added"
-                className="btn btn-solid opacity-60"
-              >
-                <span>Visit Website</span>
-                <ArrowIcon className="btn-arrow" />
-              </span>
-            )}
+            <div className="flex flex-wrap items-center gap-3">
+              {currentBuilding.url ? (
+                <a
+                  href={currentBuilding.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-solid"
+                >
+                  <span>Visit Website</span>
+                  <ArrowIcon className="btn-arrow" />
+                </a>
+              ) : (
+                <span
+                  aria-disabled="true"
+                  title="Website [URL] to be added"
+                  className="btn btn-solid opacity-60"
+                >
+                  <span>Visit Website</span>
+                  <ArrowIcon className="btn-arrow" />
+                </span>
+              )}
+
+              {currentBuilding.applyUrl ?? currentBuilding.url ? (
+                <a
+                  href={currentBuilding.applyUrl ?? currentBuilding.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Apply to rent at ${currentBuilding.name}`}
+                  className="btn btn-outline"
+                >
+                  <span>Apply to Rent</span>
+                  <ArrowIcon className="btn-arrow" />
+                </a>
+              ) : (
+                <span
+                  aria-disabled="true"
+                  title="Application URL to be added"
+                  className="btn btn-outline opacity-60"
+                >
+                  <span>Apply to Rent</span>
+                  <ArrowIcon className="btn-arrow" />
+                </span>
+              )}
+            </div>
 
             <div className="sp-nav">
               <button

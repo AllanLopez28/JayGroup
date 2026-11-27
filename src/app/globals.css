@@ -3730,8 +3730,21 @@
   transition:
     transform 0.2s var(--ease-soft),
     background-color 0.3s var(--ease-soft),
+    border-color 0.3s var(--ease-soft),
     color 0.3s var(--ease-soft),
-    box-shadow 0.3s var(--ease-soft);
+    box-shadow 0.3s var(--ease-soft),
+    opacity 0.3s var(--ease-soft);
+}
+
+.dash-pill-dark:disabled {
+  background-color: #9aa0b2;
+  color: #ffffff;
+  box-shadow: none;
+}
+
+.dash-pill-dark:disabled:hover {
+  background-color: #9aa0b2;
+  box-shadow: none;
 }
 
 .dash-pill:active:not(:disabled) {
@@ -4173,6 +4186,304 @@
   .login-alt-card svg,
   .login-veil {
     transition: none !important;
+  }
+}
+
+/* resident dashboard — amenities */
+@keyframes dash-am-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes dash-am-fade {
+  to {
+    opacity: 1;
+  }
+}
+
+.dash-am-space {
+  background-color: #f8f9fb;
+}
+
+.dash-am-space:hover {
+  border-color: #c5cad6;
+}
+
+.dash-am-space-badge {
+  background: rgb(199 150 59 / 0.16);
+  color: var(--color-brass-dark);
+  transition:
+    background-color 0.35s var(--ease-soft),
+    color 0.35s var(--ease-soft);
+}
+
+.dash-am-space[aria-checked="true"] .dash-am-space-badge {
+  background: var(--color-brass);
+  color: var(--color-portal-night);
+}
+
+.dash-am-terms {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-portal-night);
+  color: #ffffff;
+  border-radius: 4px;
+  padding: clamp(32px, 4vw, 56px) clamp(22px, 3vw, 44px);
+}
+
+.dash-am-terms::before {
+  content: "";
+  position: absolute;
+  right: -12%;
+  top: -60%;
+  width: 55%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgb(199 150 59 / 0.12),
+    transparent 65%
+  );
+  pointer-events: none;
+}
+
+.dash-am-rule {
+  display: block;
+  width: 120px;
+  height: 1px;
+  margin: 24px auto 0;
+  background: var(--color-brass);
+  transform: scaleX(0);
+}
+
+.dash-am-terms.is-in .dash-am-rule {
+  animation: dash-grow 1s var(--ease-expo) 0.25s forwards;
+}
+
+.dash-am-item {
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+.dash-am-terms.is-in .dash-am-item {
+  animation: dash-fadeUp 0.8s var(--ease-expo) forwards;
+  animation-delay: calc(var(--i, 0) * 90ms + 200ms);
+}
+
+.dash-am-ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.dash-am-ring circle {
+  fill: none;
+  stroke: rgb(199 150 59 / 0.55);
+  stroke-width: 1;
+  stroke-dasharray: 302;
+  stroke-dashoffset: 302;
+}
+
+.dash-am-terms.is-in .dash-am-ring circle {
+  animation: dash-am-draw 1.4s var(--ease-expo) forwards;
+  animation-delay: calc(var(--i, 0) * 90ms + 300ms);
+}
+
+.dash-am-ring-icon {
+  transition: transform 0.6s var(--ease-expo);
+}
+
+@media (hover: hover) {
+  .dash-am-item:hover .dash-am-ring-icon {
+    transform: scale(1.12) rotate(-6deg);
+  }
+}
+
+.dash-am-muted-copy {
+  color: #c9cdd8;
+}
+
+.dash-am-know {
+  background: rgb(227 230 235 / 0.12);
+  border: 1px solid rgb(227 230 235 / 0.12);
+}
+
+.dash-am-kn {
+  background: var(--color-portal-night);
+  opacity: 0;
+}
+
+.dash-am-terms.is-in .dash-am-kn {
+  animation: dash-am-fade 0.8s var(--ease-soft) forwards;
+  animation-delay: calc(var(--i, 0) * 70ms + 800ms);
+}
+
+.dash-am-dlink {
+  border: 1px solid rgb(227 230 235 / 0.3);
+  transition:
+    background-color 0.3s var(--ease-soft),
+    border-color 0.3s var(--ease-soft),
+    color 0.3s var(--ease-soft);
+}
+
+.dash-am-dlink-ic {
+  transition: transform 0.5s var(--ease-expo);
+}
+
+.dash-am-dlink:hover {
+  background: var(--color-mist);
+  border-color: var(--color-mist);
+  color: var(--color-portal-night);
+}
+
+.dash-am-dlink:hover .dash-am-dlink-ic {
+  transform: translateY(2px);
+}
+
+/* amenities terms modal (native <dialog>) */
+.dash-am-dialog {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+  background: transparent;
+  overflow: visible;
+}
+
+.dash-am-dialog::backdrop {
+  background: transparent;
+}
+
+.dash-am-dialog[open] {
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+
+.dash-am-scrim {
+  position: fixed;
+  inset: 0;
+  background: rgb(12 17 41 / 0.6);
+  backdrop-filter: blur(3px);
+  opacity: 0;
+  transition: opacity 0.4s var(--ease-soft);
+}
+
+.dash-am-dialog.is-open .dash-am-scrim {
+  opacity: 1;
+}
+
+.dash-am-panel {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 760px;
+  max-height: calc(100vh - 40px);
+  max-height: calc(100dvh - 40px);
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  color: var(--color-portal-night);
+  border-radius: 4px;
+  box-shadow: 0 40px 80px -30px rgb(12 17 41 / 0.6);
+  opacity: 0;
+  transform: translateY(28px) scale(0.98);
+  transition:
+    opacity 0.35s var(--ease-soft),
+    transform 0.6s var(--ease-expo);
+}
+
+.dash-am-dialog.is-open .dash-am-panel {
+  opacity: 1;
+  transform: none;
+}
+
+.dash-am-close {
+  transition:
+    transform 0.4s var(--ease-expo),
+    border-color 0.3s var(--ease-soft);
+}
+
+.dash-am-close:hover {
+  transform: rotate(90deg);
+  border-color: var(--color-portal-night);
+}
+
+.dash-am-body {
+  overscroll-behavior: contain;
+}
+
+.dash-am-body > * {
+  flex-shrink: 0;
+}
+
+.dash-am-clause-body {
+  color: #3a4058;
+}
+
+.dash-am-clause-row {
+  border-bottom: 1px solid #eef0f4;
+}
+
+.dash-am-clause-row:last-child {
+  border-bottom: 0;
+}
+
+.dash-am-sum-divider {
+  border-top: 1px solid #eef0f4;
+}
+
+.dash-am-agree input {
+  accent-color: var(--color-navy);
+}
+
+@media (max-width: 640px) {
+  .dash-am-head,
+  .dash-am-body,
+  .dash-am-foot {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .dash-am-actions .dash-pill {
+    flex: 1 1 auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dash-am-rule {
+    animation: none !important;
+    transform: scaleX(1) !important;
+  }
+
+  .dash-am-item,
+  .dash-am-kn {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .dash-am-ring circle {
+    animation: none !important;
+    stroke-dashoffset: 0 !important;
+  }
+
+  .dash-am-ring-icon,
+  .dash-am-space-badge,
+  .dash-am-dlink,
+  .dash-am-dlink-ic,
+  .dash-am-scrim,
+  .dash-am-panel,
+  .dash-am-close {
+    transition: none !important;
+    animation: none !important;
   }
 }
 

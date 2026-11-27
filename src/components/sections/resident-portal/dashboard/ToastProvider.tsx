@@ -12,7 +12,7 @@ import type { ReactNode } from "react";
 import { PortalIcon } from "@/components/sections/resident-portal/dashboard/PortalIcon";
 
 interface ToastContextValue {
-  showToast: (message: string) => void;
+  showToast: (message: string, durationMs?: number) => void;
 }
 
 const ToastContext = createContext<ToastContextValue | null>(null);
@@ -28,7 +28,7 @@ export function ToastProvider({ children }: ToastProviderProps) {
   const [isVisible, setIsVisible] = useState(false);
   const timerRef = useRef<number | null>(null);
 
-  const showToast = useCallback((nextMessage: string) => {
+  const showToast = useCallback((nextMessage: string, durationMs?: number) => {
     setMessage(nextMessage);
     setIsVisible(true);
 
@@ -39,7 +39,7 @@ export function ToastProvider({ children }: ToastProviderProps) {
     timerRef.current = window.setTimeout(() => {
       setIsVisible(false);
       timerRef.current = null;
-    }, TOAST_DURATION_MS);
+    }, durationMs ?? TOAST_DURATION_MS);
   }, []);
 
   useEffect(() => {

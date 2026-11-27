@@ -20,6 +20,7 @@ export interface Building {
   tags: string[];
   features: string[];
   url?: string;
+  applyUrl?: string;
   image?: string;
   cutout?: string;
   cutoutAspectRatio?: number;
@@ -90,7 +91,23 @@ export type PortalIconName =
   | "download"
   | "upload"
   | "check"
-  | "star";
+  | "star"
+  | "close"
+  | "dollar"
+  | "hourglass"
+  | "sparkles"
+  | "users"
+  | "clock"
+  | "calendar-cancel"
+  | "clipboard"
+  | "clock-overtime"
+  | "calendar-minus"
+  | "shield-check"
+  | "no-wall"
+  | "ban"
+  | "wine"
+  | "volume"
+  | "lock";
 
 export interface PortalNavItem {
   id: string;
@@ -156,12 +173,100 @@ export interface KeyTypeOption {
   label: string;
 }
 
+export interface AmenityPricing {
+  hourlyRateCents: number;
+  minHours: number;
+  durationOptions: readonly number[];
+  cleaningFeeCents: number;
+  closeHour: number;
+  maxGuests: number;
+  overtimeIncrementMinutes: number;
+  overtimeIncrementCents: number;
+  lateCancellationFeeCents: number;
+  freeCancellationDays: number;
+}
+
+export interface AmenityGlanceItem {
+  icon: PortalIconName;
+  value: string;
+  label: string;
+}
+
+export interface AmenityGoodToKnowItem {
+  icon: PortalIconName;
+  title: string;
+  text: string;
+}
+
+export interface AmenityClause {
+  number: string;
+  title: string;
+  body: string;
+}
+
+export interface AmenityAgreement {
+  eyebrow: string;
+  titlePrefix: string;
+  titleEmphasis: string;
+  glance: readonly AmenityGlanceItem[];
+  goodToKnowLabel: string;
+  goodToKnow: readonly AmenityGoodToKnowItem[];
+  footnote: string;
+  downloadLinkLabel: string;
+  documentTitle: string;
+  documentSubtitle: string;
+  clauses: readonly AmenityClause[];
+  riderTitle: string;
+  riderClauses: readonly AmenityClause[];
+  consentLabel: string;
+  pdfUrl: string;
+  pdfFilename: string;
+}
+
 export interface AmenitySpace {
   id: string;
   category: string;
   name: string;
-  hours: string;
+  hoursLabel: string;
+  badge?: string;
+  pricing?: AmenityPricing;
+  agreement?: AmenityAgreement;
 }
+
+export interface GuestOption {
+  id: string;
+  label: string;
+  maxGuests: number;
+}
+
+export interface AmenityQuote {
+  rentalCents: number;
+  cleaningCents: number;
+  totalCents: number;
+}
+
+export interface AmenityBookingRequestInput {
+  spaceId: string;
+  date: string;
+  startHour: number;
+  hours: number;
+  guestOptionId: string;
+  agreedToTerms: boolean;
+}
+
+export type AmenityBookingRequestResult =
+  | {
+      ok: true;
+      request: {
+        id: string;
+        status: "pending_approval";
+        totalCents?: number;
+      };
+    }
+  | {
+      ok: false;
+      error: string;
+    };
 
 export interface OverviewQuickAction {
   id: string;
@@ -187,13 +292,6 @@ export interface ExtraKeyFormData {
   keyType: string;
   quantity: number;
   reason: string;
-}
-
-export interface AmenityBookingFormData {
-  space: string;
-  date: string;
-  guests: string;
-  timeSlot: string;
 }
 
 export interface FeedbackFormData {

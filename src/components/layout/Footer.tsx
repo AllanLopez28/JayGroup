@@ -10,7 +10,7 @@ export function Footer() {
       className="border-t border-line-dark bg-night-2 py-16 text-mist"
     >
       <Container className="space-y-12">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
           <div className="space-y-3">
             <h2 className="font-sans text-xs font-medium uppercase tracking-[0.14em] text-brass">
               Office
@@ -42,16 +42,6 @@ export function Footer() {
                   {siteConfig.contact.email}
                 </a>
               </li>
-            </ul>
-          </div>
-
-          <div className="space-y-3">
-            <h2 className="font-sans text-xs font-medium uppercase tracking-[0.14em] text-brass">
-              Follow
-            </h2>
-            <ul className="space-y-1 text-sm text-fog">
-              <li>{siteConfig.social.instagram}</li>
-              <li>{siteConfig.social.facebook}</li>
             </ul>
           </div>
 

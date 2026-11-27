@@ -8,15 +8,16 @@ export interface SplitWordSegment {
 }
 
 export interface SplitWordsProps {
+  id?: string;
   segments: readonly SplitWordSegment[];
   className?: string;
 }
 
-export function SplitWords({ segments, className }: SplitWordsProps) {
+export function SplitWords({ id, segments, className }: SplitWordsProps) {
   let wordIndex = 0;
 
   return (
-    <h1 className={className}>
+    <h1 id={id} className={className}>
       {segments.map((segment, segIdx) => {
         const words = segment.text.trim().split(/\s+/).filter(Boolean);
         const isLastSegment = segIdx === segments.length - 1;
